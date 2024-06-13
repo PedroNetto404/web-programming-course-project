@@ -1,0 +1,51 @@
+/* Estilos gerais */
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #181817; /* Cor de fundo do cabeçalho */
+    color: white;
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Para alinhar os itens do menu horizontalmente */
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+/* Estilos da seção de destaque */
+#destaque {
+    text-align: center;
+    padding: 2em;
+}
+
+#destaque img {
+    max-width: 100%; /* Para a imagem se ajustar à largura da tela */
+    height: auto;
+}
+
+/* Estilos do cardápio */
+#cardapio {
+    display: flex;
+    flex-wrap: wrap; /* Para que as marmitas se ajustem em várias linhas */
+    justify-content: space-around;
+}
+
+.marmita {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: 1em;
+    text-align: center;
+}
+
+.marmita img {
+    max-width: 100%;
+    height: auto;
+}
