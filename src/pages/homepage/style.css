@@ -1,4 +1,6 @@
-
+* {
+    font-family: "Roboto", sans-serif;
+}
 
 /* Estilos gerais */
 body {
@@ -50,4 +52,8 @@ nav li {
 .marmita img {
     max-width: 100%;
     height: auto;
+}
+
+.styled-font {
+    font-family: "Permanent Marker", cursive;
 }
