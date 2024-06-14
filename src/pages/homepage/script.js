@@ -7,3 +7,7 @@ botoesAdicionar.forEach(botao => {
         alert('Marmita adicionada ao carrinho!');
     });
 });
+
+localStorage.setItem('theme', 'dark');
+// Jogar no root o attr theme = dark
+document.documentElement.setAttribute('theme', 'dark');

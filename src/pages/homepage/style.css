@@ -1,3 +1,5 @@
+@import url('../../shared/styles/theme.css');
+
 * {
     font-family: "Roboto", sans-serif;
 }
@@ -9,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #181817; /* Cor de fundo do cabeçalho */
+    background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
     color: white;
     padding: 1em;
 }
