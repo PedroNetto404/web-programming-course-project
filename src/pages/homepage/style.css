@@ -1,15 +1,5 @@
 @import url('../../shared/styles/theme.css');
 
-* {
-    font-family: "Roboto", sans-serif;
-}
-
-/* Estilos gerais */
-body {
-    font-family: sans-serif;
-    margin: 0;
-}
-
 header {
     background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
     color: white;
