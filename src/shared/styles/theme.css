@@ -6,11 +6,6 @@
     font-family: "Permanent Marker", cursive;
 }
 
-* {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
 :root[theme="dark"] {
     --primary-color: #181817;
     --secondary-color: #95703d;
@@ -37,4 +32,13 @@
     --success-color: #95703d;
     --info-color: #414042;
     --error-color: #834a21;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: var(--foreground-color);
+    background-color: var(--background-color);
 }
