@@ -1,14 +1,14 @@
-
+import orderController from "../../controllers/order-controller.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = [
-        { name: 'Marmita P', price: 17.00, requiredProteins: 1, requiredSides: 2 },
-        { name: 'Marmita M', price: 22.00, requiredProteins: 2, requiredSides: 2 },
-        { name: 'Marmita G', price: 25.00, requiredProteins: 2, requiredSides: 2 },
-        { name: 'Executiva', price: 25.00, requiredProteins: 2, requiredSides: 2 },
-        { name: 'Prato feito P', price: 17.00, requiredProteins: 1, requiredSides: 2 },
-        { name: 'Prato feito G', price: 25.00, requiredProteins: 2, requiredSides: 2 },
-        { name: 'Caldos 500ml', price: 23.00, requiredProteins: 0, requiredSides: 0 }
+        { name: 'Marmita P', price: 17.00, requiredProteins: 1, requiredSides: 2, image: '../../images/MarmitaP.png' },
+        { name: 'Marmita M', price: 22.00, requiredProteins: 2, requiredSides: 2, image: '../../images/MarmitaM.png' },
+        { name: 'Marmita G', price: 25.00, requiredProteins: 2, requiredSides: 2, image: '../../images/MarmitaG.png' },
+        { name: 'Executiva', price: 25.00, requiredProteins: 2, requiredSides: 2, image: '../../images/executivo.jpg' },
+        { name: 'Prato feito P', price: 17.00, requiredProteins: 1, requiredSides: 2, image: '../../images/PratoP.png' },
+        { name: 'Prato feito G', price: 25.00, requiredProteins: 2, requiredSides: 2, image: '../../images/PratoG.png' },
+        { name: 'Caldos 500ml', price: 23.00, requiredProteins: 0, requiredSides: 0, image: '../../images/caldoCostela.webp' }
     ];
 
     const extraPrices = {
@@ -55,15 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const optionsDiv = document.getElementById('options');
     const addToCartButton = document.getElementById('add-to-cart-button');
     const cartButton = document.getElementById('view-cart-button');
-    let cart = [];
 
     function updateMenuItem() {
         const selectedItem = menuItems[currentIndex];
-        menuItemImage.src = selectedItem.image; // Definindo o caminho da imagem
+        console.log(selectedItem)
+        if(selectedItem.image) {
+            menuItemImage.src = selectedItem.image; // Definindo o caminho da imagem
+        }
+
         menuItemImage.alt = selectedItem.name;
+        menuItemImage.style.width = '600px';
+        menuItemImage.style.height = '400px';
+
         menuItemDisplay.innerHTML = ''; // Limpa o conteúdo anterior
         menuItemDisplay.appendChild(menuItemImage); // Adiciona a imagem
-        menuItemName.innerText = selectedItem.name;
+        menuItemDisplay.innerText = selectedItem.name;
     }
 
     document.getElementById('prev-button').addEventListener('click', () => {
@@ -140,11 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
             price: selectedItem.price + extraCost
         };
 
-        cart.push(item);
+        orderController.create(item);
         alert('Item adicionado ao carrinho!');
+
+        selectionModal.style.display = 'none';
     });
 });
 
 localStorage.setItem('theme', 'dark');
-// Jogar no root o attr theme = dark
 document.documentElement.setAttribute('theme', 'dark');

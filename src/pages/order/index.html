@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marmitaria do Ó</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <header>
         <nav>
             <ul>
-                <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó" ></h1>
-                    <li><a href="/src/pages/homepage/index.html">Home</a></li>
-                    <li><a href="/src/pages/order/index.html">Pedidos</a></li>
-                    <li><a href="/src/pages/Menu/index.html">Cardápio</a></li>
-                    <li><a href="/src/pages/contact/index.html">Contato</a></li>
-                    <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i></a></li>
+                <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó"></h1>
+                <li><a href="/src/pages/homepage/index.html">Home</a></li>
+                <li><a href="/src/pages/order/index.html">Pedidos</a></li>
+                <li><a href="/src/pages/Menu/index.html">Cardápio</a></li>
+                <li><a href="/src/pages/contact/index.html">Contato</a></li>
+                <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping"
+                            style="font-size: 30px;"></i></a></li>
                 <span class="search">
-                    <form id="searchForm" >
+                    <form id="searchForm">
                         <input type="text" id="searchInput" placeholder="Pesquisar..." name="search">
                         <button type="submit" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
@@ -28,14 +31,16 @@
 
     <div class="container">
         <div id="menu-item-display" class="menu-item-display">
-            <button id="prev-button" class="button"><i class="fa-solid fa-angle-left" style="font-size: 100px;"></i></button>
-                <div id="menu-item" class="menu-item"></div>            
-            <button id="next-button" class="button"><i class="fa-solid fa-chevron-right" style="font-size: 100px;"></i></button>
+            <button id="prev-button" class="button"><i class="fa-solid fa-angle-left"
+                    style="font-size: 100px;"></i></button>
+            <div id="menu-item" class="menu-item"></div>
+            <button id="next-button" class="button"><i class="fa-solid fa-chevron-right"
+                    style="font-size: 100px;"></i></button>
         </div>
         <button id="select-button" style="border-radius: 20px; padding: 5px;">Selecionar</button>
     </div>
 
-    <div id="selection-modal" class="modal">
+    <div id="selection-modal" class="modal" style="display: none;">
         <div class="modal-content">
             <span id="close-modal" class="close" style="background-color: #fefefe;">&times;</span>
             <h2 style="background-color: #fefefe;">Selecione as Opções</h2>
@@ -53,12 +58,14 @@
                     <!-- Extras serão adicionadas aqui -->
                 </div>
             </div>
-            <button id="voltar-selecao" style="border-radius: 20px;"><a href="/src/pages/order/index.html">Voltar</a></button>
+            <button id="voltar-selecao" style="border-radius: 20px;"><a
+                    href="/src/pages/order/index.html">Voltar</a></button>
             <button id="add-to-cart-button" style="border-radius: 20px;">Adicionar ao Carrinho</button>
         </div>
     </div>
 
-    <button id="view-cart-button" class="go-cart" style="border-radius: 20px;"><a href="/src/pages/cart/index.html">Ir para o Carrinho</a></button>
+    <button id="view-cart-button" class="go-cart" style="border-radius: 20px;"><a href="/src/pages/cart/index.html">Ir
+            para o Carrinho</a></button>
 
     <footer>
         <div style="display: flex; justify-content: center;padding: 30px;">
@@ -72,6 +79,6 @@
         </nav>
     </footer>
 
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
