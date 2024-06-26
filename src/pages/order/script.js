@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = [
         { name: 'Marmita P', price: 17.00, requiredProteins: 1, requiredSides: 2 },
@@ -41,8 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'Pepsi 350ml'
     ];
 
+    const soupOptions = ['Costela', 'Mandioquinha', 'Carne seca'];
+
     let currentIndex = 0;
     const menuItemDisplay = document.getElementById('menu-item');
+    const menuItemImage = document.createElement('img'); // Criando a tag img dinamicamente
+    const menuItemName = document.getElementById('menu-item-name');
     const selectButton = document.getElementById('select-button');
     const selectionModal = document.getElementById('selection-modal');
     const closeModal = document.getElementById('close-modal');
@@ -52,7 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = [];
 
     function updateMenuItem() {
-        menuItemDisplay.innerText = menuItems[currentIndex].name;
+        const selectedItem = menuItems[currentIndex];
+        menuItemImage.src = selectedItem.image; // Definindo o caminho da imagem
+        menuItemImage.alt = selectedItem.name;
+        menuItemDisplay.innerHTML = ''; // Limpa o conteúdo anterior
+        menuItemDisplay.appendChild(menuItemImage); // Adiciona a imagem
+        menuItemName.innerText = selectedItem.name;
     }
 
     document.getElementById('prev-button').addEventListener('click', () => {
@@ -74,18 +85,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const proteins = proteinOptions[proteinDay];
         const sides = sideOptions[proteinDay];
 
-        if (selectedItem.requiredProteins > 0) {
-            optionsDiv.innerHTML += '<h3>Proteínas</h3>';
-            proteins.forEach(protein => {
-                optionsDiv.innerHTML += `<label><input type="checkbox" name="protein" value="${protein}"> ${protein}</label><br>`;
+        if (selectedItem.name === 'Caldos 500ml') {
+            optionsDiv.innerHTML += '<h3>Tipos de Caldo</h3>';
+            soupOptions.forEach(soup => {
+                optionsDiv.innerHTML += `<label><input type="radio" name="soup" value="${soup}"> ${soup}</label><br>`;
             });
-        }
+        } else {
+            if (selectedItem.requiredProteins > 0) {
+                optionsDiv.innerHTML += '<h3>Proteínas</h3>';
+                proteins.forEach(protein => {
+                    optionsDiv.innerHTML += `<label><input type="checkbox" name="protein" value="${protein}"> ${protein}</label><br>`;
+                });
+            }
 
-        if (selectedItem.requiredSides > 0) {
-            optionsDiv.innerHTML += '<h3>Guarnições</h3>';
-            sides.forEach(side => {
-                optionsDiv.innerHTML += `<label><input type="checkbox" name="side" value="${side}"> ${side}</label><br>`;
-            });
+            if (selectedItem.requiredSides > 0) {
+                optionsDiv.innerHTML += '<h3>Guarnições</h3>';
+                sides.forEach(side => {
+                    optionsDiv.innerHTML += `<label><input type="checkbox" name="side" value="${side}"> ${side}</label><br>`;
+                });
+            }
         }
 
         optionsDiv.innerHTML += '<h3>Extras</h3>';
@@ -116,20 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const extras = Array.from(selectedExtras).map(extra => extra.value);
         const extraCost = extras.reduce((total, extra) => total + extraPrices[extra], 0);
-        const totalPrice = selectedItem.price + extraCost;
 
-        const cartItem = {
-            item: selectedItem.name,
-            proteins: Array.from(selectedProteins).map(protein => protein.value),
-            sides: Array.from(selectedSides).map(side => side.value),
-            extras: extras,
-            price: totalPrice
+        const item = {
+            name: selectedItem.name,
+            price: selectedItem.price + extraCost
         };
 
-        cart.push(cartItem);
-        selectionModal.style.display = 'none';
-        console.log('Carrinho:', cart);
+        cart.push(item);
+        alert('Item adicionado ao carrinho!');
     });
-
-    updateMenuItem();
 });
+
+localStorage.setItem('theme', 'dark');
+// Jogar no root o attr theme = dark
+document.documentElement.setAttribute('theme', 'dark');

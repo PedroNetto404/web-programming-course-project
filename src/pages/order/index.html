@@ -13,8 +13,8 @@
                 <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó" ></h1>
                     <li><a href="/src/pages/homepage/index.html">Home</a></li>
                     <li><a href="/src/pages/order/index.html">Pedidos</a></li>
-                    <li><a href="/src/pages/menu/">Cardápio</a></li>
-                    <li><a href="/src/pages/contact/">Contato</a></li>
+                    <li><a href="/src/pages/Menu/index.html">Cardápio</a></li>
+                    <li><a href="/src/pages/contact/index.html">Contato</a></li>
                     <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i></a></li>
                 <span class="search">
                     <form id="searchForm" >
@@ -28,37 +28,37 @@
 
     <div class="container">
         <div id="menu-item-display" class="menu-item-display">
-            <button id="prev-button">❮</button>
-            <div id="menu-item"></div>
-            <button id="next-button">❯</button>
+            <button id="prev-button" class="button"><i class="fa-solid fa-angle-left" style="font-size: 100px;"></i></button>
+                <div id="menu-item" class="menu-item"></div>            
+            <button id="next-button" class="button"><i class="fa-solid fa-chevron-right" style="font-size: 100px;"></i></button>
         </div>
-        <button id="select-button">Selecionar</button>
+        <button id="select-button" style="border-radius: 20px; padding: 5px;">Selecionar</button>
     </div>
 
     <div id="selection-modal" class="modal">
         <div class="modal-content">
-            <span id="close-modal" class="close">&times;</span>
-            <h2>Selecione as Opções</h2>
+            <span id="close-modal" class="close" style="background-color: #fefefe;">&times;</span>
+            <h2 style="background-color: #fefefe;">Selecione as Opções</h2>
             <div id="options">
                 <div id="proteins">
-                    <h3>Proteínas</h3>
+                    <h3 style="background-color: #fefefe;">Proteínas</h3>
                     <!-- Proteínas serão adicionadas aqui -->
                 </div>
                 <div id="sides">
-                    <h3>Guarnições</h3>
+                    <h3 style="background-color: #fefefe;">Guarnições</h3>
                     <!-- Guarnições serão adicionadas aqui -->
                 </div>
                 <div id="extras">
-                    <h3>Extras</h3>
+                    <h3 style="background-color: #fefefe;">Extras</h3>
                     <!-- Extras serão adicionadas aqui -->
                 </div>
             </div>
-            <button id="voltar-selecao">Voltar</button>
-            <button id="add-to-cart-button">Adicionar ao Carrinho</button>
+            <button id="voltar-selecao" style="border-radius: 20px;"><a href="/src/pages/order/index.html">Voltar</a></button>
+            <button id="add-to-cart-button" style="border-radius: 20px;">Adicionar ao Carrinho</button>
         </div>
     </div>
 
-    <button id="view-cart-button">Ir para o Carrinho</button>
+    <button id="view-cart-button" class="go-cart" style="border-radius: 20px;"><a href="/src/pages/cart/index.html">Ir para o Carrinho</a></button>
 
     <footer>
         <div style="display: flex; justify-content: center;padding: 30px;">
