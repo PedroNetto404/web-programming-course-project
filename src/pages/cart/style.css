@@ -1,5 +1,47 @@
 @import url('../../shared/styles/theme.css');
 
+header {
+    padding: 1em;
+}
+
+nav ul {
+    color: var(--foreground-color);
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    display: flex; /* Para alinhar os itens do menu horizontalmente */
+}
+
+nav li {
+    margin: 5px;
+    color: var(--foreground-color);
+}
+
+.search{
+    float: right;
+    justify-content: right;
+}
+
+#searchForm {
+    justify-content: flex-end;
+}
+
+#searchInput {
+    width: 70%;
+    background-color: var(--neutral-color);
+    border-radius: 10px;
+    border: -20px;
+    margin: 5px;
+    padding: 10px;
+}
+
+#searchButton {
+    font-size: 30px;
+    border-radius: 30px;
+    border-color: transparent;
+    margin: 5px;
+    padding: 5px;
+}
 
 .cart-header {
     display: flex;
@@ -8,8 +50,18 @@
     gap: 1em;
 }
 
-.cart-content {
 
+.cart-footer {
+    position: relative;
+    padding: 30px;
+    display: flex;
+    justify-content: right;
+    border-radius: 10px;
+}
+
+.cart-footer-button {
+    padding: 10px;
+    font-size: 30px;
 }
 
 .cart-item {
@@ -19,4 +71,16 @@
     padding: 1em;
     margin: 1em;
     border: 1px solid var(--secondary-color);
+}
+
+.styled-font {
+    font-family: "Permanent Marker", cursive;
+    font-size: 50px;
+}
+
+
+#footer {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
 }

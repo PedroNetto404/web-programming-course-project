@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marmitaria do Ó</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó" ></h1>
+                    <li><a href="/src/pages/homepage/index.html">Home</a></li>
+                    <li><a href="/src/pages/order/index.html">Pedidos</a></li>
+                    <li><a href="/src/pages/menu/">Cardápio</a></li>
+                    <li><a href="/src/pages/contact/">Contato</a></li>
+                    <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i></a></li>
+                <span class="search">
+                    <form id="searchForm" >
+                        <input type="text" id="searchInput" placeholder="Pesquisar..." name="search">
+                        <button type="submit" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </span>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="menu-item-display" class="menu-item-display">
+            <button id="prev-button">❮</button>
+            <div id="menu-item"></div>
+            <button id="next-button">❯</button>
+        </div>
+        <button id="select-button">Selecionar</button>
+    </div>
+
+    <div id="selection-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2>Selecione as Opções</h2>
+            <div id="options">
+                <div id="proteins">
+                    <h3>Proteínas</h3>
+                    <!-- Proteínas serão adicionadas aqui -->
+                </div>
+                <div id="sides">
+                    <h3>Guarnições</h3>
+                    <!-- Guarnições serão adicionadas aqui -->
+                </div>
+                <div id="extras">
+                    <h3>Extras</h3>
+                    <!-- Extras serão adicionadas aqui -->
+                </div>
+            </div>
+            <button id="voltar-selecao">Voltar</button>
+            <button id="add-to-cart-button">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <button id="view-cart-button">Ir para o Carrinho</button>
+
+    <footer>
+        <div style="display: flex; justify-content: center;padding: 30px;">
+            <p>&copy; 2024 Marmitaria. Todos os direitos reservados.</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#privacidade">Política de Privacidade</a></li>
+                <li><a href="#termos">Termos de Uso</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -2,45 +2,56 @@
 <html>
 
 <head>
-    <title>Marmitas Deliciosas</title>
+    <title>Marmitaria do Ó</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="images" href="/src/images">
     <link rel="stylesheet" href="../../shared/styles/theme.css">
 </head>
 
 <body>
     <header>
-        <h1 class="styled-font">Marmitas Deliciosas</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Cardápio</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó" ></h1>
+                    <li><a href="/src/pages/homepage/index.html">Home</a></li>
+                    <li><a href="/src/pages/order/index.html">Pedidos</a></li>
+                    <li><a href="/src/pages/menu/">Cardápio</a></li>
+                    <li><a href="/src/pages/contact/">Contato</a></li>
+                    <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i></a></li>
+                <span class="search">
+                    <form id="searchForm" >
+                        <input type="text" id="searchInput" placeholder="Pesquisar..." name="search">
+                        <button type="submit" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </span>
             </ul>
         </nav>
     </header>
 
     <section id="destaque">
-        <h2>Saboreie nossas marmitas caseiras!</h2>
-        <img src="marmita_destaque.jpg" alt="Marmita em destaque">
-        <button>Peça agora</button>
-    </section>
-
-    <section id="cardapio">
-        <h2>Nosso Cardápio</h2>
-        <div class="marmita">
-            <img src="marmita1.jpg" alt="Marmita 1">
-            <h3>Marmita Tradicional</h3>
-            <p>Deliciosa combinação de arroz, feijão, carne, salada e farofa.</p>
-            <p class="preco">R$ 20,00</p>
-            <button>Adicionar</button>
+        <aside class="content-image">
+            <img src="/src/images/telaInicial.png" alt="Marmita em destaque">
+        </aside>
+        <div class="content-text">
+            <h2 class="styled-font">Saboreie nossas marmitas caseiras!</h2>
+            <p class="text">Experimente um sabor inconfundível das nossas marmitas e vire um cliente fiel...</p>
+            <br>
+            <button id="pedido" ><a href="/src/pages/order/index.html"> Peça Agora! </a></button>
         </div>
-    </section>
+    </section>  
     <footer>
-        <p>&copy; 2024 Marmitas Deliciosas</p>
+        <div style="display: flex; justify-content: center;padding: 30px;">
+            <p>&copy; 2024 Marmitaria. Todos os direitos reservados.</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#privacidade">Política de Privacidade</a></li>
+                <li><a href="#termos">Termos de Uso</a></li>
+            </ul>
+        </nav>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

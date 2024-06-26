@@ -1,51 +1,117 @@
 @import url('../../shared/styles/theme.css');
 
+
+
 header {
-    background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
-    color: white;
     padding: 1em;
 }
 
 nav ul {
+    color: var(--foreground-color);
     list-style: none;
-    padding: 0;
+    justify-content: space-around;
+    align-items: center;
     display: flex; /* Para alinhar os itens do menu horizontalmente */
 }
 
 nav li {
-    margin-right: 20px;
+    margin: 5px;
+    color: var(--foreground-color);
 }
+
+.search{
+    float: right;
+    justify-content: right;
+}
+
+#searchForm {
+    justify-content: flex-end;
+}
+
+#searchInput {
+    width: 70%;
+    background-color: var(--neutral-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#searchButton {
+    font-size: 30px;
+    border-radius: 30px;
+    border-color: transparent;
+    margin: 5px;
+    padding: 5px;
+}
+
+.content-image {
+    background: var(--primary-color);
+    flex: 1;
+    text-align: center;
+  }
+  
+.content-image img {
+
+    background: var(--primary-color);
+    max-width: 100%;
+    height: auto;
+    display: flex;
+}
+
 
 /* Estilos da seção de destaque */
 #destaque {
-    text-align: center;
-    padding: 2em;
+
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+  
 }
+
+.content-text {
+    color: var(--neutral-color);
+    background: var(--primary-color);
+    flex: 1;
+    text-align: center;
+}
+
+.content-text h2 {
+    color: var(--neutral-color);
+    background: var(--primary-color);
+    font-size: 5em;
+    margin-bottom: 10px;
+}
+  
+.content-text p {
+    color: var(--neutral-color);
+    background: var(--primary-color);
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+  
 
 #destaque img {
-    max-width: 100%; /* Para a imagem se ajustar à largura da tela */
+    background: var(--primary-color);
+    width: 100%; /* Para a imagem se ajustar à largura da tela */
     height: auto;
+
 }
 
-/* Estilos do cardápio */
-#cardapio {
-    display: flex;
-    flex-wrap: wrap; /* Para que as marmitas se ajustem em várias linhas */
-    justify-content: space-around;
-}
-
-.marmita {
-    border: 1px solid #ccc;
-    padding: 1em;
-    margin: 1em;
+#pedido {
+    color: var(--primary-color);
     text-align: center;
+    font-size: 50px;
+    border-radius: 20px;
+    border-color: var(--background-color);
+    margin: 10px;
+    padding: 10px;
+    font-family: "Permanent Marker", cursive;
 }
 
-.marmita img {
-    max-width: 100%;
-    height: auto;
-}
 
 .styled-font {
     font-family: "Permanent Marker", cursive;
+    font-size: 50px;
 }
+

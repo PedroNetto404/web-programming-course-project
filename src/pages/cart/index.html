@@ -13,11 +13,19 @@
 <body>
     <header>
         <nav>
-            <!-- TODO -->
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó" ></h1>
+                    <li><a href="/src/pages/homepage/index.html">Home</a></li>
+                    <li><a href="/src/pages/order/index.html">Pedidos</a></li>
+                    <li><a href="/src/pages/menu/">Cardápio</a></li>
+                    <li><a href="/src/pages/contact/">Contato</a></li>
+                    <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i></a></li>
+                <span class="search">
+                    <form id="searchForm" >
+                        <input type="text" id="searchInput" placeholder="Pesquisar..." name="search">
+                        <button type="submit" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </span>
             </ul>
         </nav>
     </header>
@@ -28,7 +36,7 @@
             <!-- Begin Cart Header -->
             <header class="cart-header">
                 <div>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i>
                 </div>
                 <h3>Carrinho</h1>
             </header>
@@ -39,11 +47,11 @@
                 <article class="cart-item">
                     <div class="cart-item-quantity">
                         <button class="cart-item-quantity-decrease">
-                            <i class="fa fa-minus"></i>
+                            <i class="fa fa-minus" style="font-size: 30px;"></i>
                         </button>
                         <input type="number" value="1" min="1">
                         <button class="cart-item-quantity-increase">
-                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-plus" style="font-size: 30px;"></i>
                         </button>                        
                     </div>
                     <div>
@@ -52,8 +60,8 @@
                         <p>Preço: R$ 20,00</p>
 
                     </div>
-                    <button class="cart-item-remove">
-                        <i class="fa-solid fa-trash"></i>
+                    <button class="cart-item-remove" style="border-color: transparent;">
+                        <i class="fa-solid fa-trash" style="font-size: 30px;"></i>
                     </button>
                 </article>
             </section>
@@ -61,7 +69,7 @@
 
             <!-- Begin Cart Footer -->
             <footer class="cart-footer">
-                <button>Finalizar Compra</button>
+                <button class="cart-footer-button">Finalizar Compra</button>
             </footer>
             <!-- End Cart Footer -->
         </section>
@@ -69,7 +77,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Marmitaria. Todos os direitos reservados.</p>
+        <div style="display: flex; justify-content: center;padding: 30px;">
+            <p>&copy; 2024 Marmitaria. Todos os direitos reservados.</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="#privacidade">Política de Privacidade</a></li>

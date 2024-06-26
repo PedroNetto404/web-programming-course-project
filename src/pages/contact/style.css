@@ -1,0 +1,116 @@
+@import url('../../shared/styles/theme.css');
+
+
+
+header {
+    padding: 1em;
+}
+
+nav ul {
+    color: var(--foreground-color);
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    display: flex; /* Para alinhar os itens do menu horizontalmente */
+}
+
+nav li {
+    margin: 5px;
+    color: var(--foreground-color);
+}
+
+.search{
+    float: right;
+    justify-content: right;
+}
+
+#searchForm {
+    justify-content: flex-end;
+}
+
+#searchInput {
+    width: 70%;
+    background-color: var(--neutral-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#searchButton {
+    font-size: 30px;
+    border-radius: 30px;
+    border-color: transparent;
+    margin: 5px;
+    padding: 5px;
+}
+
+.content-image {
+    background: var(--primary-color);
+    flex: 1;
+    text-align: center;
+  }
+  
+.content-image img {
+
+    background: var(--primary-color);
+    max-width: 100%;
+    height: auto;
+    display: flex;
+}
+
+
+/* Estilos da seção de destaque */
+#destaque {
+
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+  
+}
+
+.content-text {
+    color: var(--neutral-color);
+    background: var(--primary-color);
+    flex: 1;
+    text-align: center;
+}
+
+.content-text h2 {
+    color: var(--neutral-color);
+    background: var(--primary-color);
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+  
+.content-text p {
+    color: var(--neutral-color);
+    background: var(--primary-color);
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+  
+
+#destaque img {
+    background: var(--primary-color);
+    width: 80%; /* Para a imagem se ajustar à largura da tela */
+    height: auto;
+
+}
+
+#pedido {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 50px;
+    border-radius: 20px;
+    border-color: var(--background-color);
+    margin: 10px;
+    padding: 10px;
+    font-family: "Permanent Marker", cursive;
+}
+
+
+.styled-font {
+    font-family: "Permanent Marker", cursive;
+}
+
