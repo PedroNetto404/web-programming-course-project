@@ -5,9 +5,9 @@ const database = getDatabase(TABLE_NAME);
 
 const getAll = () => database.getAll();
 const getById = (id) => database.getById(id);
-const save = (order) => database.save(order);
+const save = (product) => database.save(product);
 const remove = (id) => database.remove(id);
-const update = (order) => database.update(order);
+const update = (product) => database.update(product);
 
 export default {
     getAll,

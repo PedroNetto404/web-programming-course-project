@@ -1,44 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html theme="dark">
 
 <head>
     <title>Marmitaria do Ó</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="images" href="/src/images">
+    <link rel="images" href="/assets/images">
     <link rel="stylesheet" href="../../shared/styles/theme.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <h1><img src="/src/images/logoNAV.png" alt="Marmitaria do Ó" ></h1>
-                    <li><a href="/src/pages/homepage/index.html">Home</a></li>
-                    <li><a href="/src/pages/order/index.html">Pedidos</a></li>
-                    <li><a href="/src/pages/menu/">Cardápio</a></li>
-                    <li><a href="/src/pages/contact/">Contato</a></li>
-                    <li><a href="/src/pages/cart/index.html"><i class="fa-solid fa-cart-shopping" style="font-size: 30px;"></i></a></li>
-                <span class="search">
-                    <form id="searchForm" >
-                        <input type="text" id="searchInput" placeholder="Pesquisar..." name="search">
-                        <button type="submit" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </span>
-            </ul>
-        </nav>
-    </header>
-
     <section id="carousel">
         <button class="arrow-left control" aria-label="Previous image"><i class="fa-solid fa-angle-left"></i></button>
         <button class="arrow-right control" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="gallery-wrapper">
             <div class="gallery">
-                <img src="/src/images/segunda.jpg" alt="Segunda-feira" class="item current-item">
-                <img src="/src/images/terca.jpg" alt="Terça-feira" class="item">
-                <img src="/src/images/quarta.jpg" alt="Quarta-feira" class="item">
-                <img src="/src/images/quinta.jpg" alt="Quinta-feira" class="item">
-                <img src="/src/images/sexta.jpg" alt="Sexta-feira" class="item">
-                <img src="/src/images/sabado.jpg" alt="Sábado" class="item">
+                <img src="/assets/images/segunda.jpg" alt="Segunda-feira" class="item current-item">
+                <img src="/assets/images/terca.jpg" alt="Terça-feira" class="item">
+                <img src="/assets/images/quarta.jpg" alt="Quarta-feira" class="item">
+                <img src="/assets/images/quinta.jpg" alt="Quinta-feira" class="item">
+                <img src="/assets/images/sexta.jpg" alt="Sexta-feira" class="item">
+                <img src="/assets/images/sabado.jpg" alt="Sábado" class="item">
             </div>
         </div>
     </section>  
@@ -55,7 +36,7 @@
         </nav>
     </footer>
 
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 
 </html>

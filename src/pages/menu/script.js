@@ -1,3 +1,6 @@
+import AppBar from "../../shared/components/app-bar.js";
+AppBar();
+
 // Funcionalidades interativas (exemplo: adicionar ao carrinho)
 const botoesAdicionar = document.querySelectorAll('.marmita button');
 

@@ -7,31 +7,31 @@
 }
 
 :root[theme="dark"] {
-    --primary-color: #181817;
-    --secondary-color: #95703d;
-    --neutral-color: #c7c0b5;
-    --highlight-color: #414042;
-    --background-color: #2e2107;
-    --foreground-color: #de951f;
-    --link-color: #de951f;
-    --warning-color: #ca9a66;
-    --success-color: #908b75;
-    --info-color: #493417;
-    --error-color: #834a21;
+    --primary-color: #2b1a1a; /* Dark red */
+    --secondary-color: #e94e1b; /* Orange */
+    --neutral-color: #c7c0b5; /* Light beige */
+    --highlight-color: #ff6347; /* Tomato */
+    --background-color: #3b2a2a; /* Deep brownish-red */
+    --foreground-color: #f0a500; /* Bright orange */
+    --link-color: #f0a500; /* Bright orange */
+    --warning-color: #ffba08; /* Bright yellow-orange */
+    --success-color: #8bc34a; /* Light green */
+    --info-color: #ff9800; /* Vivid orange */
+    --error-color: #d32f2f; /* Deep red */
 }
 
 :root[theme="light"] {
-    --primary-color: #f8f8f5;
-    --secondary-color: #95703d;
-    --neutral-color: #908b75;
-    --highlight-color: #de951f;
-    --background-color: #ebd4a0;
-    --foreground-color: #181817;
-    --link-color: #de951f;
-    --warning-color: #ca9a66;
-    --success-color: #95703d;
-    --info-color: #414042;
-    --error-color: #834a21;
+    --primary-color: #d32f2f; /* Deep red */
+    --secondary-color: #ff5722; /* Vivid orange */
+    --neutral-color: #f5f5f5; /* Light grey */
+    --highlight-color: #ff7043; /* Light orange */
+    --background-color: #ffebee; /* Light pinkish */
+    --foreground-color: #000000; /* Deep orange */
+    --link-color: #ff7043; /* Light orange */
+    --warning-color: #ffa726; /* Bright orange */
+    --success-color: #66bb6a; /* Light green */
+    --info-color: #ff9800; /* Vivid orange */
+    --error-color: #e53935; /* Deep red */
 }
 
 * {
@@ -40,5 +40,4 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: var(--foreground-color);
-    background-color: var(--background-color);
 }

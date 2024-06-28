@@ -1,25 +1,21 @@
 @import url('../../shared/styles/theme.css');
 
-
-
 header {
     padding: 1em;
 }
 
 nav ul {
-    color: var(--foreground-color);
     list-style: none;
     justify-content: space-around;
     align-items: center;
-    display: flex; /* Para alinhar os itens do menu horizontalmente */
+    display: flex;
 }
 
 nav li {
     margin: 5px;
-    color: var(--foreground-color);
 }
 
-.search{
+.search {
     float: right;
     justify-content: right;
 }
@@ -44,14 +40,11 @@ nav li {
 }
 
 .content-image {
-    background: var(--primary-color);
     flex: 1;
     text-align: center;
-  }
-  
-.content-image img {
+}
 
-    background: var(--primary-color);
+.content-image img {
     max-width: 100%;
     height: auto;
     display: flex;
@@ -60,42 +53,35 @@ nav li {
 
 /* Estilos da seção de destaque */
 #destaque {
-
-    background: var(--primary-color);
+    background: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 50px;
-  
+
 }
 
 .content-text {
-    color: var(--neutral-color);
-    background: var(--primary-color);
     flex: 1;
     text-align: center;
 }
 
 .content-text h2 {
-    color: var(--neutral-color);
-    background: var(--primary-color);
     font-size: 5em;
     margin-bottom: 10px;
 }
-  
+
 .content-text p {
-    color: var(--neutral-color);
-    background: var(--primary-color);
     font-size: 1.2em;
     line-height: 1.6;
 }
-  
+
 
 #destaque img {
-    background: var(--primary-color);
-    width: 100%; /* Para a imagem se ajustar à largura da tela */
+    width: 100%;
+    /* Para a imagem se ajustar à largura da tela */
     height: auto;
-
+    padding-top: 2em;
 }
 
 #pedido {
@@ -103,7 +89,6 @@ nav li {
     text-align: center;
     font-size: 50px;
     border-radius: 20px;
-    border-color: var(--background-color);
     margin: 10px;
     padding: 10px;
     font-family: "Permanent Marker", cursive;
@@ -115,3 +100,10 @@ nav li {
     font-size: 50px;
 }
 
+footer {
+    background: var(--primary-color);
+    color: var(--neutral-color);
+    text-align: center;
+    padding: 1em;
+    box-shadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+}
