@@ -1,25 +1,31 @@
-import AppBar from "../../shared/components/app-bar.js";
-AppBar();
+import Layout from "../../shared/components/layout.js";
 
+const ContactPage = () => {
+    const template = `
+        <section id="destaque">
+            <aside class="content-image">
+                <img src="/assets/images/motoboy.png" alt="Marmita em destaque">
+            </aside>
+            <div class="content-text">
+                <h2 class="styled-font">Faça seu pedido:  </h2>
+                <h2 class="styled-font">(16) 3040 - 2179  </h2>
+                <p class="text">Endereço para retirada ou almoço no local:</p>
+                <br>
+                <p class="text">Rua Enzo Morandi, nº 260</p>
+            </div>
+        </section>
+    `;
 
-// const botoesAdicionar = document.querySelectorAll('.marmita button');
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = template.trim();
+    const page = tempDiv.firstChild;
 
-// botoesAdicionar.forEach(botao => {
-//     botao.addEventListener('click', () => {
-//         // Lógica para adicionar a marmita ao carrinho (a implementar)
-//         alert('Marmita adicionada ao carrinho!');
-//     });
-// });
+    return page;
+}
 
-// document.getElementById("searchForm").addEventListener("submit", function(event) {
-//     event.preventDefault(); // Evita que o formulário seja enviado
-  
-//     // Captura o valor do campo de pesquisa
-//     var query = document.getElementById("searchInput").value;
-  
-//     // Aqui você pode adicionar a lógica para manipular a pesquisa
-//     // Por exemplo, redirecionar para uma página de resultados
-//     if (query.trim() !== "") {
-//       window.location.href = "/search-results.html?q=" + encodeURIComponent(query);
-//     }
-//   });
+const $page = ContactPage();
+const $layout = Layout({ content: $page });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.appendChild($layout);
+});

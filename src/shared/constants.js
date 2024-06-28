@@ -14,7 +14,16 @@ const Colors = {
 
 const LogoUrl = '/assets/images/logoNAV.png';
 
+const Pages = {
+    home: '/src/pages/homepage/index.html',
+    products: '/src/pages/products/index.html',
+    cart: '/src/pages/cart/index.html',
+    contact: '/src/pages/contact/index.html',
+    menu: '/src/pages/menu/index.html'
+}
+
 export default {
     Colors,
-    LogoUrl
+    LogoUrl,
+    Pages
 }

@@ -1,35 +1,35 @@
-'use strict';
-
 import constants from '../constants.js';
-const { Colors } = constants;
+const { Colors, Pages } = constants;
 
 const navigationItemsStyle = {
     'display': 'flex',
     'list-style-type': 'none',
     'justify-content': 'space-between',
     'gap': '20px',
-    'align-items': 'center'
+    'align-items': 'center',
+    'margin': '0', // Remove margens
+    'padding': '0' // Remove preenchimentos extras
 };
 
 const navigationItems = [
     {
         text: 'Home',
-        link: '/src/pages/homepage/index.html',
+        link: Pages.home,
         icon: 'fa-solid fa-house'
     },
     {
-        text: 'Pedidos',
-        link: '/src/pages/products/index.html',
+        text: 'Produtos',
+        link: Pages.products,
         icon: 'fa-solid fa-box'
     },
     {
         text: 'Cardápio',
-        link: '/src/pages/menu/',
+        link: Pages.menu,
         icon: 'fa-solid fa-utensils'
     },
     {
         text: 'Contato',
-        link: '/src/pages/contact/',
+        link: Pages.contact,
         icon: 'fa-solid fa-envelope'
     }
 ];
@@ -43,7 +43,9 @@ const headerStyle = {
     'box-shadow': '0 2px 4px rgba(0, 0, 0, 0.1)',
     position: 'fixed',
     width: '100%',
-    background: Colors.primary
+    top: '0', // Garante que esteja fixo no topo
+    background: Colors.primary,
+    'z-index': '1000'
 };
 
 const AppBar = () => {
@@ -148,11 +150,48 @@ const AppBar = () => {
         return $themeSwitcher;
     };
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const $themeSwitcher = ThemeSwitcher();
-        $appBar.appendChild($themeSwitcher);
-        document.body.insertBefore($appBar, document.body.firstChild);
-    });
+    const CartButton = () => {
+        const cartButtonStyle = {
+            'background-color': 'transparent',
+            'border': 'none',
+            'cursor': 'pointer',
+            'font-size': '24px'
+        };
+
+        const template = `
+        <button 
+            id="cartButton" 
+            style="${Object.keys(cartButtonStyle)
+                .map(key => `${key}: ${cartButtonStyle[key]};`)
+                .join('')}" 
+            aria-label="Abrir carrinho"
+        >
+            <i class="fa-solid fa-shopping-cart"></i>
+            <span id="cartCount">0</span>
+        </button>
+        `;
+
+        const $tempDiv = document.createElement('div');
+        $tempDiv.innerHTML = template.trim();
+        const $cartButton = $tempDiv.firstChild;
+
+        $cartButton.addEventListener('click', () => {
+            window.location.href = Pages.cart;
+        });
+
+        return $cartButton;
+    };
+
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.appendChild(CartButton());
+    buttonsContainer.appendChild(ThemeSwitcher());
+
+    buttonsContainer.style.display = 'flex';
+    buttonsContainer.style.gap = '20px';
+
+    $appBar.appendChild(buttonsContainer);
+
+    return $appBar;
 };
 
 export default AppBar;

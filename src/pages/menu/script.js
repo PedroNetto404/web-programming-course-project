@@ -1,6 +1,7 @@
 import AppBar from "../../shared/components/app-bar.js";
+import Footer from "../../shared/components/footer.js";
 AppBar();
-
+Footer(); 
 // Funcionalidades interativas (exemplo: adicionar ao carrinho)
 const botoesAdicionar = document.querySelectorAll('.marmita button');
 
@@ -11,9 +12,6 @@ botoesAdicionar.forEach(botao => {
     });
 });
 
-localStorage.setItem('theme', 'dark');
-// Jogar no root o attr theme = dark
-document.documentElement.setAttribute('theme', 'dark');
 
 document.getElementById("searchForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Evita que o formulário seja enviado

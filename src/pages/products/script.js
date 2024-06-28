@@ -1,118 +1,70 @@
-import orderController from "../../controllers/order-controller.js";
-import menuController from "../../controllers/menu-controller.js";
+import Layout from '../../shared/components/layout.js';
+import Products from './components/products.js';
+import productController from '../../controllers/product-controller.js';
+import menuController from '../../controllers/menu-controller.js';
+import Modal from '../../shared/components/modal.js';
+import Loading from '../../shared/components/loading.js';
 
-import AppBar from "../../shared/components/app-bar.js";
-AppBar();
+const ProductsPage = (products) => {
+    const showModal = async (product) => {
+        const dishes = await menuController.getAll();
 
-const createItemImg = ({ image, name }) => {
-    const img = document.createElement('img');
-    img.src = image;
-    img.alt = name;
-    img.style.width = '600px';
-    img.style.height = '400px';
-    return img;
+        const modal = Modal({
+            title: `Customize sua ${product.name}`,
+            body: `
+                <div id="dishes-container"></div>
+            `,
+            onConfirm: (selectedDishes) => {
+                console.log('Selected dishes:', selectedDishes);
+                alert(`Adicionado: ${product.name}`);
+            },
+            onCancel: () => {
+                console.log('Modal cancelled');
+            },
+            onClose: () => {
+                console.log('Modal closed');
+            }
+        });
+
+        modal.open();
+
+        const dishesContainer = document.querySelector('#dishes-container');
+        const dishesComponent = Dishes({
+            dishes,
+            selectedDishes: [],
+            onSelect: (selectedDishes) => {
+                console.log('Selected dishes:', selectedDishes);
+            }
+        });
+        dishesContainer.appendChild(dishesComponent);
+    }
+
+    const productsComponent = Products({
+        products,
+        onClick: (product) => {
+            if (product.category === 'lunchbox' || product.category === 'local-meal') {
+                showModal(product);
+            } else {
+                alert(`Adicionado: ${product.name}`);
+            }
+        }
+    });
+
+    return Layout({ content: productsComponent });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    let currentIndex = 0;
+(async () => {
+    const loading = Loading();
 
-    const goToNextItem = async (isNext) => {
-        const todayMenu = await menuController.getTodaysMenus();
-        const menuItemsCount = todayMenu.length;
+    try {
+        const productsPromisse = productController.getAll();
+        loading.show();
+        const products = await productsPromisse;
 
-        let nextIndex = isNext ? currentIndex + 1 : currentIndex - 1;
-        nextIndex = nextIndex < 0 ?
-            menuItemsCount - 1 :
-            nextIndex >= menuItemsCount ?
-                nextIndex % menuItemsCount :
-                nextIndex;
-
-        if (nextIndex === currentIndex) return;
-
-        currentIndex = nextIndex;
-        updateItem(currentIndex);
+        document.body.insertBefore(ProductsPage(products), document.body.firstChild);
+    } catch (e) {
+        console.error(e);
+    } finally {
+        loading.hide();
     }
-
-    document.getElementById('prev-button').addEventListener('click', () => goToNextItem(false));
-    document.getElementById('next-button').addEventListener('click', () => goToNextItem(true));
-
-    const updateItem = async () => {
-        const menuItems = await menuController.getTodaysMenus();
-        const currentItem = menuItems[currentIndex];
-
-        const $itemContainer = document.getElementById('menu-item');
-        $itemContainer.innerHTML = '';
-        $itemContainer.appendChild(createItemImg(currentItem));
-        $itemContainer.innerText = currentItem.name;
-    }
-
-    // selectButton.addEventListener('click', () => {
-    //     selectionModal.style.display = 'block';
-    //     optionsDiv.innerHTML = '';
-
-    //     const selectedItem = menuItems[currentIndex];
-    //     const proteinDay = Object.keys(proteinOptions)[new Date().getDay() - 1];
-    //     const proteins = proteinOptions[proteinDay];
-    //     const sides = sideOptions[proteinDay];
-
-    //     if (selectedItem.name === 'Caldos 500ml') {
-    //         optionsDiv.innerHTML += '<h3>Tipos de Caldo</h3>';
-    //         soupOptions.forEach(soup => {
-    //             optionsDiv.innerHTML += `<label><input type="radio" name="soup" value="${soup}"> ${soup}</label><br>`;
-    //         });
-    //     } else {
-    //         if (selectedItem.requiredProteins > 0) {
-    //             optionsDiv.innerHTML += '<h3>Proteínas</h3>';
-    //             proteins.forEach(protein => {
-    //                 optionsDiv.innerHTML += `<label><input type="checkbox" name="protein" value="${protein}"> ${protein}</label><br>`;
-    //             });
-    //         }
-
-    //         if (selectedItem.requiredSides > 0) {
-    //             optionsDiv.innerHTML += '<h3>Guarnições</h3>';
-    //             sides.forEach(side => {
-    //                 optionsDiv.innerHTML += `<label><input type="checkbox" name="side" value="${side}"> ${side}</label><br>`;
-    //             });
-    //         }
-    //     }
-
-    //     optionsDiv.innerHTML += '<h3>Extras</h3>';
-    //     extraOptions.forEach(extra => {
-    //         optionsDiv.innerHTML += `<label><input type="checkbox" name="extra" value="${extra}"> ${extra}</label><br>`;
-    //     });
-    // });
-
-    // closeModal.addEventListener('click', () => {
-    //     selectionModal.style.display = 'none';
-    // });
-
-    // addToCartButton.addEventListener('click', () => {
-    //     const selectedItem = menuItems[currentIndex];
-    //     const selectedProteins = document.querySelectorAll('input[name="protein"]:checked');
-    //     const selectedSides = document.querySelectorAll('input[name="side"]:checked');
-    //     const selectedExtras = document.querySelectorAll('input[name="extra"]:checked');
-
-    //     if (selectedProteins.length < selectedItem.requiredProteins) {
-    //         alert(`Por favor, selecione pelo menos ${selectedItem.requiredProteins} proteína(s).`);
-    //         return;
-    //     }
-
-    //     if (selectedSides.length < selectedItem.requiredSides) {
-    //         alert(`Por favor, selecione pelo menos ${selectedItem.requiredSides} guarnição(ões).`);
-    //         return;
-    //     }
-
-    //     const extras = Array.from(selectedExtras).map(extra => extra.value);
-    //     const extraCost = extras.reduce((total, extra) => total + extraPrices[extra], 0);
-
-    //     const item = {
-    //         name: selectedItem.name,
-    //         price: selectedItem.price + extraCost
-    //     };
-
-    //     orderController.create(item);
-    //     alert('Item adicionado ao carrinho!');
-
-    //     selectionModal.style.display = 'none';
-    // });
-});
+})();
