@@ -7,8 +7,8 @@ const navigationItemsStyle = {
     'justify-content': 'space-between',
     'gap': '20px',
     'align-items': 'center',
-    'margin': '0', // Remove margens
-    'padding': '0' // Remove preenchimentos extras
+    'margin': '0',
+    'padding': '0'
 };
 
 const navigationItems = [
@@ -43,7 +43,7 @@ const headerStyle = {
     'box-shadow': '0 2px 4px rgba(0, 0, 0, 0.1)',
     position: 'fixed',
     width: '100%',
-    top: '0', // Garante que esteja fixo no topo
+    top: '0', 
     background: Colors.primary,
     'z-index': '1000'
 };
@@ -145,7 +145,10 @@ const AppBar = () => {
             updateIcon();
         });
 
-        document.addEventListener('DOMContentLoaded', updateIcon);
+        const currentTheme = localStorage.getItem('theme');
+        document.documentElement.setAttribute('theme', currentTheme || 'light');
+
+        updateIcon();
 
         return $themeSwitcher;
     };
